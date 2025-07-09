@@ -1,69 +1,125 @@
-# React + TypeScript + Vite
+# Lexi Legal Assistant - Frontend Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal frontend interface for a legal assistant that allows users to ask legal questions, receive AI-generated answers, and view citations with links to original PDF documents.
 
-Currently, two official plugins are available:
+#### Deployed Vercel Link: [https://lexisg-frontend-intern-test-sandy-mu.vercel.app/](https://lexisg-frontend-intern-test-sandy-mu.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Chat-like Interface**: Similar to ChatGPT with a clean, modern design
+- **Legal Question Input**: Text area for entering legal queries
+- **AI-Generated Answers**: Simulated responses with proper legal formatting
+- **Citation Handling**: Clickable citations that open PDF documents
+- **Loading States**: Visual feedback during query processing
+- **Responsive Design**: Works on desktop and mobile devices
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React.js** with Next.js App Router
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling
+- **shadcn/ui** components for UI elements
+- **Lucide React** for icons
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/AnkushS27/Lexisg-frontend-intern-test.git
+cd Lexisg-frontend-intern-test
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Run the development server:
+```bash
+npm run dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Usage
+
+1. **Ask a Question**: Type your legal question in the text area at the bottom
+2. **Submit**: Click the send button or press Enter
+3. **View Answer**: The AI-generated response will appear in the chat
+4. **Click Citations**: Click on any citation card to open the PDF document
+5. **PDF Handling**: Citations open in a new tab with a dialog showing citation details
+
+### Example Query
+
+Try this sample query:
+```
+In a motor accident claim where the deceased was self-employed and aged 54–55 years at the time of death, is the claimant entitled to an addition towards future prospects in computing compensation under Section 166 of the Motor Vehicles Act, 1988?
+```
+
+## Citation Handling
+
+- Citations are displayed as clickable cards below the answer
+- Each citation shows the quoted text, paragraph reference, and source document
+- Clicking a citation opens a dialog with details and a link to the PDF
+- PDFs open in a new tab for easy reference
+- The system simulates scrolling to specific paragraphs (Paragraph 7 in the example)
+
+## API Simulation
+
+The application simulates API responses without requiring a backend:
+
+```typescript
+const simulatedResponse = {
+  answer: "Legal answer text...",
+  citations: [
+    {
+      text: "Quoted text from document",
+      source: "Document_Name.pdf",
+      link: "https://document-url.com",
+      paragraph: "Para 7"
+    }
+  ]
+}
+```
+
+## Features Implemented
+
+- ✅ Chat-like interface similar to ChatGPT
+- ✅ Legal question input with loading states
+- ✅ AI-generated answer display
+- ✅ Citation cards with source information
+- ✅ PDF opening in new tabs
+- ✅ Citation dialog with detailed information
+- ✅ Responsive design
+- ✅ TypeScript implementation
+- ✅ Modern UI with Tailwind CSS
+
+## Bonus Features
+
+- **Citation Dialog**: Shows detailed citation information before opening PDF
+- **Loading Animation**: Smooth loading states with spinner
+- **Responsive Design**: Works on all device sizes
+- **Accessibility**: Proper ARIA labels and keyboard navigation
+- **Type Safety**: Full TypeScript implementation
+
+## Screenshots
+![Initial Screen](./screenshots/Initial_Screen.png)
+![Response](./screenshots/Response.png)
+![Citation Card](./screenshots/Citation_Card.png)
+
+The interface closely matches the ChatGPT design with:
+- Clean chat bubbles for questions and answers
+- Citation cards with hover effects
+- Professional legal document styling
+- Intuitive navigation and interaction
+
+## License
+
+This project is created for the Lexi frontend internship assignment.
